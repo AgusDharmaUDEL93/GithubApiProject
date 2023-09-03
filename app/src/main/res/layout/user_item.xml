@@ -29,7 +29,6 @@
                 tools:src="@tools:sample/avatars"
                 tools:ignore="ContentDescription"/>
 
-
         <TextView
                 android:id="@+id/githubIdItemTv"
                 android:layout_width="0dp"
@@ -44,6 +43,5 @@
                 card_view:layout_constraintTop_toTopOf="@+id/avatarItemIv"
                 tools:text="@string/github_id"
                 card_view:layout_constraintBottom_toBottomOf="parent"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
