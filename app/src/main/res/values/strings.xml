@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Github Api Project</string>
+
+    <string name="github_id">Id</string>
+    <string name="searchbar_hint">Mau Cari Siapa ?</string>
+    <string name="name">Name</string>
+
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+
+
+
+</resources>
