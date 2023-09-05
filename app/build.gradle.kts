@@ -45,16 +45,27 @@ dependencies {
     val retrofitVersion = "2.9.0"
     val loggingInterceptorVersion = "4.9.0"
     val circleImageViewVersion = "3.1.0"
+    val dataStorePreferencesVersion = "1.0.0"
+    val kotlinxVersion = "1.6.4"
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxVersion")
+
+    implementation("androidx.datastore:datastore-preferences:$dataStorePreferencesVersion")
 
     implementation("androidx.room:room-runtime:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
 
     implementation("com.github.bumptech.glide:glide:4.11.0")
+
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
     implementation("com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion")
+
     implementation("de.hdodenhof:circleimageview:$circleImageViewVersion")
 
     implementation("androidx.core:core-ktx:1.10.1")

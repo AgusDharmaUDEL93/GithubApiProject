@@ -14,9 +14,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="30dp"
-            android:contentDescription="@string/togglefavorite"
+            android:contentDescription="@string/toggle_favorite"
             android:src="@drawable/ic_favorite_border"
             />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/shareFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="30dp"
+            android:contentDescription="@string/share"
+            android:src="@drawable/ic_share"
+            />
+
 
     <ProgressBar
             android:id="@+id/detailPB"

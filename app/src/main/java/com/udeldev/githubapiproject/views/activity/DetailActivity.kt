@@ -1,6 +1,7 @@
 package com.udeldev.githubapiproject.views.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -68,6 +69,14 @@ class DetailActivity : AppCompatActivity() {
             detailViewModel.deleteFavoriteUser(favoriteUser)
         }
 
+        activityDetailBinding.shareFAB.setOnClickListener {
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, "https://github.com/${username}")
+                type = "text/plain"
+            }
+            startActivity(sendIntent)
+        }
 
 
         TabLayoutMediator(activityDetailBinding.detailTL, activityDetailBinding.detailVp) { tabs, position ->

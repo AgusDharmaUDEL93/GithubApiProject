@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.udeldev.githubapiproject.controllers.view_models.DetailViewModel
 import com.udeldev.githubapiproject.controllers.view_models.FavoriteViewModel
+import com.udeldev.githubapiproject.controllers.view_models.SettingViewModel
 
 class ViewModelFactory private constructor(private val mApplication: Application) :
     ViewModelProvider.NewInstanceFactory() {
@@ -31,5 +32,17 @@ class ViewModelFactory private constructor(private val mApplication: Application
             return FavoriteViewModel(mApplication) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
+    }
+}
+
+class ViewModelFactorySettingPreferences(private val pref: SettingPreferences) :
+    ViewModelProvider.NewInstanceFactory() {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(SettingViewModel::class.java)) {
+            return SettingViewModel(pref) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
 }

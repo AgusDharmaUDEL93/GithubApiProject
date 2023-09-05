@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-            android:id="@+id/favoritePage"
-            android:title="@string/favorite_list"
-            android:icon="@drawable/ic_favorite"
+            android:id="@+id/settingPage"
+            android:title="@string/setting"
+            android:icon="@drawable/ic_setting"
             android:enabled="true"
             app:showAsAction="always"
             android:visible="true"

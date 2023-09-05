@@ -3,13 +3,19 @@ package com.udeldev.githubapiproject.views.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.udeldev.githubapiproject.R
 import com.udeldev.githubapiproject.controllers.adapter.UserListAdapter
 import com.udeldev.githubapiproject.controllers.view_models.MainViewModel
+import com.udeldev.githubapiproject.controllers.view_models.SettingViewModel
 import com.udeldev.githubapiproject.databinding.ActivityMainBinding
+import com.udeldev.githubapiproject.helper.SettingPreferences
+import com.udeldev.githubapiproject.helper.ViewModelFactorySettingPreferences
+import com.udeldev.githubapiproject.helper.dataStore
 import com.udeldev.githubapiproject.models.response.UserItemModel
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +56,25 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, FavoriteActivity::class.java)
                 startActivity(intent)
                 true
+            }
+
+            searchBar.inflateMenu(R.menu.setting_menu)
+            searchBar.setOnMenuItemClickListener {
+                val intent = Intent(this@MainActivity, SettingActivity::class.java)
+                startActivity(intent)
+                true
+            }
+        }
+
+        val pref = SettingPreferences.getInstance(application.dataStore)
+
+        val settingViewModel =
+            ViewModelProvider(this, ViewModelFactorySettingPreferences(pref))[SettingViewModel::class.java]
+        settingViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
 

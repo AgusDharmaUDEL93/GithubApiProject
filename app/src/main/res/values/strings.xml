@@ -8,7 +8,11 @@
     <string name="follower">Follower</string>
     <string name="following">Following</string>
     <string name="follow">Hello blank fragment</string>
-    <string name="togglefavorite">toggleFavorite</string>
-    <string name="favoritelist">favoriteList</string>
+    <string name="toggle_favorite">toggleFavorite</string>
+    <string name="favorite_list">favoriteList</string>
+    <string name="setting">setting</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="share">share</string>
+
 
 </resources>
