@@ -1,8 +1,8 @@
 package com.udeldev.githubapiproject.providers.services
 
-import com.udeldev.githubapiproject.models.data.UserDetailModel
-import com.udeldev.githubapiproject.models.data.UserItemModel
-import com.udeldev.githubapiproject.models.data.UserSearchModel
+import com.udeldev.githubapiproject.models.response.UserDetailModel
+import com.udeldev.githubapiproject.models.response.UserItemModel
+import com.udeldev.githubapiproject.models.response.UserSearchModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

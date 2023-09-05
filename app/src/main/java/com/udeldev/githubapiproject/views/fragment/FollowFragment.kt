@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.udeldev.githubapiproject.controllers.adapter.UserListAdapter
 import com.udeldev.githubapiproject.controllers.view_models.FollowViewModel
 import com.udeldev.githubapiproject.databinding.FragmentFollowBinding
-import com.udeldev.githubapiproject.models.data.UserItemModel
+import com.udeldev.githubapiproject.models.response.UserItemModel
 
 class FollowFragment : Fragment() {
 

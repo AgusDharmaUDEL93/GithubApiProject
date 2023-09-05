@@ -1,4 +1,4 @@
-package com.udeldev.githubapiproject.models.data
+package com.udeldev.githubapiproject.models.response
 
 import com.google.gson.annotations.SerializedName
 

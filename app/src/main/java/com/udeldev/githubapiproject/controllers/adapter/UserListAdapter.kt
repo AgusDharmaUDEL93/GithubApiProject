@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.udeldev.githubapiproject.R
-import com.udeldev.githubapiproject.models.data.UserItemModel
+import com.udeldev.githubapiproject.models.response.UserItemModel
 import com.udeldev.githubapiproject.views.activity.DetailActivity
 
 class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserListViewHolder>() {

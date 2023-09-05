@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.udeldev.githubapiproject.controllers.adapter.UserListAdapter
 import com.udeldev.githubapiproject.controllers.view_models.MainViewModel
 import com.udeldev.githubapiproject.databinding.ActivityMainBinding
-import com.udeldev.githubapiproject.models.data.UserItemModel
+import com.udeldev.githubapiproject.models.response.UserItemModel
 
 class MainActivity : AppCompatActivity() {
 

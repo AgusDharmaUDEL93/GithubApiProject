@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.udeldev.githubapiproject.models.data.UserItemModel
+import com.udeldev.githubapiproject.models.response.UserItemModel
 import com.udeldev.githubapiproject.providers.config.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback

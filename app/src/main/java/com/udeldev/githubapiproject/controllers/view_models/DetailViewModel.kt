@@ -1,16 +1,19 @@
 package com.udeldev.githubapiproject.controllers.view_models
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.udeldev.githubapiproject.models.data.UserDetailModel
+import com.udeldev.githubapiproject.models.data.FavoriteUserModel
+import com.udeldev.githubapiproject.models.response.UserDetailModel
 import com.udeldev.githubapiproject.providers.config.ApiConfig
+import com.udeldev.githubapiproject.repository.FavoriteUserRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel(application: Application) : ViewModel() {
     companion object {
         private const val TAG = "DetailViewModel"
     }
@@ -20,6 +23,19 @@ class DetailViewModel : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
+
+    private val favoriteUserRepository: FavoriteUserRepository = FavoriteUserRepository(application)
+
+    fun insertFavoriteUser(favoriteUser: FavoriteUserModel) {
+        favoriteUserRepository.insertFavoriteUser(favoriteUser)
+    }
+
+    fun deleteFavoriteUser(favoriteUser: FavoriteUserModel) {
+        favoriteUserRepository.deleteFavoriteUser(favoriteUser)
+    }
+
+    fun getFavoriteUserByUsername(username: String) = favoriteUserRepository.getFavoriteUserByUsername(username)
+
 
     fun gettingUserDetail(username: String) {
         _isLoading.value = true

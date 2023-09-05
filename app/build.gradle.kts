@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -17,7 +19,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
         buildConfig = true
     }
@@ -38,16 +40,24 @@ android {
 }
 
 dependencies {
+    val roomVersion = "2.5.2"
+    val lifecycleVersion = "2.6.1"
+    val retrofitVersion = "2.9.0"
+    val loggingInterceptorVersion = "4.9.0"
+    val circleImageViewVersion = "3.1.0"
 
-    implementation ("com.github.bumptech.glide:glide:4.11.0")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.0")
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("com.github.bumptech.glide:glide:4.11.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion")
+    implementation("de.hdodenhof:circleimageview:$circleImageViewVersion")
+
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
