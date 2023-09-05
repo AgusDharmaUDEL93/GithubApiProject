@@ -9,5 +9,6 @@
     <string name="following">Following</string>
     <string name="follow">Hello blank fragment</string>
     <string name="togglefavorite">toggleFavorite</string>
+    <string name="favoritelist">favoriteList</string>
 
 </resources>

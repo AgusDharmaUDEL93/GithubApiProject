@@ -1,10 +1,12 @@
 package com.udeldev.githubapiproject.views.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.udeldev.githubapiproject.R
 import com.udeldev.githubapiproject.controllers.adapter.UserListAdapter
 import com.udeldev.githubapiproject.controllers.view_models.MainViewModel
 import com.udeldev.githubapiproject.databinding.ActivityMainBinding
@@ -42,6 +44,12 @@ class MainActivity : AppCompatActivity() {
                     mainViewModel.gettingSearchUser(searchView.text.toString())
                 }
                 false
+            }
+            searchBar.inflateMenu(R.menu.favorite_menu)
+            searchBar.setOnMenuItemClickListener {
+                val intent = Intent(this@MainActivity, FavoriteActivity::class.java)
+                startActivity(intent)
+                true
             }
         }
 

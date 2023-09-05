@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.udeldev.githubapiproject.controllers.view_models.DetailViewModel
+import com.udeldev.githubapiproject.controllers.view_models.FavoriteViewModel
 
 class ViewModelFactory private constructor(private val mApplication: Application) :
     ViewModelProvider.NewInstanceFactory() {
@@ -24,7 +25,11 @@ class ViewModelFactory private constructor(private val mApplication: Application
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return DetailViewModel(mApplication) as T
-
+        if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
+            return DetailViewModel(mApplication) as T
+        } else if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
+            return FavoriteViewModel(mApplication) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }
 }
