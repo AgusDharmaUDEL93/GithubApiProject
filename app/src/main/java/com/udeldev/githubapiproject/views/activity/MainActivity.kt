@@ -53,14 +53,11 @@ class MainActivity : AppCompatActivity() {
             }
             searchBar.inflateMenu(R.menu.favorite_menu)
             searchBar.setOnMenuItemClickListener {
-                val intent = Intent(this@MainActivity, FavoriteActivity::class.java)
-                startActivity(intent)
-                true
-            }
-
-            searchBar.inflateMenu(R.menu.setting_menu)
-            searchBar.setOnMenuItemClickListener {
-                val intent = Intent(this@MainActivity, SettingActivity::class.java)
+                val intent = if (it.itemId == R.id.favoritePage) {
+                    Intent(this@MainActivity, FavoriteActivity::class.java)
+                } else {
+                    Intent(this@MainActivity, SettingActivity::class.java)
+                }
                 startActivity(intent)
                 true
             }
@@ -69,7 +66,10 @@ class MainActivity : AppCompatActivity() {
         val pref = SettingPreferences.getInstance(application.dataStore)
 
         val settingViewModel =
-            ViewModelProvider(this, ViewModelFactorySettingPreferences(pref))[SettingViewModel::class.java]
+            ViewModelProvider(
+                this,
+                ViewModelFactorySettingPreferences(pref)
+            )[SettingViewModel::class.java]
         settingViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)

@@ -20,6 +20,5 @@ class FavoriteViewModel(application: Application) : ViewModel() {
     val isLoading: LiveData<Boolean> = _isLoading
 
     private val favoriteUserRepository: FavoriteUserRepository = FavoriteUserRepository(application)
-
     fun gettingUserFavorite() = favoriteUserRepository.getAllFavoriteUser()
 }

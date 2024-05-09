@@ -9,4 +9,12 @@
             app:showAsAction="always"
             android:visible="true"
             />
+    <item
+            android:id="@+id/settingPage"
+            android:title="@string/setting"
+            android:icon="@drawable/ic_setting"
+            android:enabled="true"
+            app:showAsAction="always"
+            android:visible="true"
+            />
 </menu>
